@@ -7,9 +7,9 @@ import io
 
 # 설정 가능한 변수
 output_filename = "output_audio.mp3"
-url = "https://api.elevenlabs.io/v1/text-to-speech/eleven_multilingual_v2"  # Eleven Labs 모델 URL
+url = f"https://api.elevenlabs.io/v1/text-to-speech/{'Xb7hH8MSUJpSbSDYk0k2'}/stream"  # Eleven Labs 모델 URL
 headers = {
-    "xi-api-key": "YOUR_ELEVEN_LABS_API_KEY",  # Eleven Labs API 키를 입력하세요.
+    "xi-api-key": "sk_ac045c4a7e4c91f9cf1297482d5ab0a8d13097ad8cb586fe", # Eleven Labs API 키를 입력하세요.
     "Content-Type": "application/json"
 }
 
