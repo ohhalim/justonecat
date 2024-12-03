@@ -280,5 +280,41 @@ with second_col[1]:
 
     # 음성 입력 버튼 추가
     if st.button("🎤 음성으로 입력하기"):
-        detected_message = voice_chat()
-        st.session_state.messages.append({"role": "user", "content": detected_message})
+        help_text = st.markdown('<p>지금 말씀하세요.</p>', unsafe_allow_html=True)
+
+        with chat_bot_container:
+            detected_message = voice_chat()
+            st.session_state.messages.append({"role": "user", "content": detected_message})
+
+            with st.chat_message("user"):
+                st.markdown(detected_message)
+
+                # 4. 챗봇 응답 생성
+                response = ai.gpt_chatbot(detected_message, session_id)
+                if "메타데이터는 다음과 같습니다:" in response:
+                    start = response.find("메타데이터는 다음과 같습니다:")
+                    metadata = response[start+17:].split("<에엔터>")
+                    metadata = [d.split('<주웅간>') for d in metadata]
+                    response = response[:start]
+
+            # 6. 챗봇의 응답을 화면에 표시
+            with st.chat_message("assistant"):
+                st.write_stream(stream_data(response))
+                if metadata:
+                    st.markdown('참고한 기사는 다음과 같습니다.')
+                    result_col = st.columns([0.3, 0.3, 0.3, 0.1])
+                    for i, m in enumerate(metadata):
+                        with result_col[i]:
+                            with st.container(border=True):
+                                st.markdown(
+                                    f"""
+                                    <a href="{m[1]}" target="_blank" style="text-decoration:none; color:black;">
+                                        <h5 style="text-overflow : ellipsis; overflow: hidden; white-space: nowrap;">{m[0]}</h5>
+                                        <p style="text-overflow : ellipsis; overflow: hidden; white-space: nowrap;">{m[1]}</p>
+                                        <p style="text-overflow : ellipsis; overflow: hidden; white-space: nowrap;">{m[2]}</p>
+                                    </a>
+                                    """,
+                                    unsafe_allow_html=True
+                                )
+            # 4.챗봇 응답을 대화기록에 추가
+            st.session_state.messages.append({"role": "assistant", "content": response})
