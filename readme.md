@@ -265,7 +265,20 @@ if __name__ == "__main__":
 <br>
 
 ##  시연
+> #### 챗봇으로 특정 뉴스 검색
 ![images](images/1.gif)
+<br>
+
+> #### 원본 뉴스기사 페이지로 들어가기
+![images](images/2.gif)
+<br>
+
+> #### 음성입력으로 챗봇과 대화
+![images](images/3.gif)
+<br>
+
+> #### 챗봇의 음성출력
+![images](images/4.gif)
 
 
 <br>
