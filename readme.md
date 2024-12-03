@@ -53,7 +53,7 @@
 
 ### ◻ Rag 구동 흐름
 
-![images](images/chatbot_run.jpg)
+![images](images/chat_bot.jpg)
 
 ``` python
 import streamlit as st
