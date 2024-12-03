@@ -45,11 +45,11 @@
 ### ◻ Streamlit UI 
 > ### 초안
 
-![images](images/one.png){: width="500" height="300"}
+![images](images/one.png){:width="500" height="300"}
 
 > ### 최종안
 
-![images](images/image.png){: width="500" height="300"}
+![images](images/image.png){:width="500" height="300"}
 
 ### ◻ Rag 구동 흐름
 
