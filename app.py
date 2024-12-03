@@ -280,11 +280,13 @@ with second_col[1]:
 
     # 음성 입력 버튼 추가
     if st.button("🎤 음성으로 입력하기"):
-        help_text = st.markdown('<p>지금 말씀하세요.</p>', unsafe_allow_html=True)
+        help_text = st.empty()
+        help_text.text('지금 말씀하세요.')
 
         with chat_bot_container:
             detected_message = voice_chat()
             st.session_state.messages.append({"role": "user", "content": detected_message})
+            help_text.empty()
 
             with st.chat_message("user"):
                 st.markdown(detected_message)
