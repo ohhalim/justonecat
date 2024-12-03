@@ -266,9 +266,7 @@ if __name__ == "__main__":
 
 ##  시연
 ![images](images/1.gif)
-![images](images/2.gif)
-![images](images/3.gif)
-![images](images/4.gif)
+
 
 <br>
 
